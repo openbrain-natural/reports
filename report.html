@@ -6,961 +6,492 @@
   <title>Refractory Prosthetic S. aureus Endocarditis — Research Compendium</title>
   <style>
     :root {
-      --navy: #0f1e3c;
-      --blue: #1a3a6b;
-      --teal: #0e7c7b;
-      --teal-light: #12a09e;
-      --amber: #e8a838;
-      --red: #c0392b;
-      --bg: #f5f7fb;
-      --white: #ffffff;
-      --gray-light: #eef1f7;
-      --gray-mid: #d4dae8;
-      --text: #1a1e2e;
-      --text-muted: #5a6480;
+      --navy: #0f1e3c; --blue: #1a3a6b; --teal: #0e7c7b;
+      --amber: #e8a838; --red: #c0392b; --bg: #f5f7fb;
+      --white: #ffffff; --gray-light: #eef1f7; --gray-mid: #d4dae8;
+      --text: #1a1e2e; --text-muted: #5a6480;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia','Times New Roman',serif; background: var(--bg); color: var(--text); line-height: 1.75; }
 
-    body {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-    }
+    /* HERO */
+    .hero { background: linear-gradient(135deg,var(--navy) 0%,var(--blue) 60%,#1f5278 100%); color:#fff; padding:60px 48px 50px; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; top:-80px; right:-80px; width:340px; height:340px; border-radius:50%; background:rgba(255,255,255,.04); pointer-events:none; }
+    .hero-tag { display:inline-block; background:rgba(14,124,123,.35); border:1px solid rgba(14,124,123,.6); color:#7ee8e7; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:20px; }
+    .hero h1 { font-size:clamp(22px,3vw,34px); font-weight:normal; line-height:1.3; max-width:700px; margin-bottom:14px; }
+    .hero h1 em { font-style:normal; color:#7ee8e7; }
+    .hero-sub { font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; color:rgba(255,255,255,.65); max-width:580px; margin-bottom:30px; }
+    .hero-meta { display:flex; gap:28px; flex-wrap:wrap; }
+    .meta-chip { font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; color:rgba(255,255,255,.55); display:flex; align-items:center; gap:6px; }
+    .meta-chip strong { color:rgba(255,255,255,.85); }
 
-    /* ─── HERO ─── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1f5278 100%);
-      color: #fff;
-      padding: 60px 48px 50px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; top: -80px; right: -80px;
-      width: 340px; height: 340px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -60px; left: 40%;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: rgba(14,124,123,0.18);
-      pointer-events: none;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: rgba(14,124,123,0.35);
-      border: 1px solid rgba(14,124,123,0.6);
-      color: #7ee8e7;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: normal;
-      line-height: 1.3;
-      max-width: 700px;
-      margin-bottom: 14px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: #7ee8e7;
-    }
-    .hero-sub {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 14px;
-      color: rgba(255,255,255,0.65);
-      max-width: 560px;
-      margin-bottom: 30px;
-    }
-    .hero-meta {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .meta-chip {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .meta-chip strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+    /* CASE BOX */
+    .case-box { background:var(--white); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:28px 32px; margin:36px 48px; box-shadow:0 2px 16px rgba(0,0,0,.07); }
+    .case-box h2 { font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+    .case-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; }
+    .case-item { background:var(--gray-light); border-radius:8px; padding:12px 16px; }
+    .case-item .label { font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:4px; }
+    .case-item .value { font-size:14px; line-height:1.5; }
 
-    /* ─── CASE SUMMARY BOX ─── */
-    .case-box {
-      background: var(--white);
-      border-left: 4px solid var(--teal);
-      border-radius: 0 12px 12px 0;
-      padding: 28px 32px;
-      margin: 36px 48px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-    }
-    .case-box h2 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 16px;
-    }
-    .case-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 12px;
-    }
-    .case-item {
-      background: var(--gray-light);
-      border-radius: 8px;
-      padding: 12px 16px;
-    }
-    .case-item .label {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-    .case-item .value {
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.5;
-    }
+    /* WARNING */
+    .warning-bar { background:#fff8e6; border:1px solid #f5d98b; border-radius:10px; padding:14px 20px; margin:0 48px 28px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; color:#7a5100; display:flex; align-items:flex-start; gap:10px; }
 
-    /* ─── WARNING BANNER ─── */
-    .warning-bar {
-      background: #fff8e6;
-      border: 1px solid #f5d98b;
-      border-radius: 10px;
-      padding: 14px 20px;
-      margin: 0 48px 32px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 13px;
-      color: #7a5100;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .warning-bar .icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+    /* URGENT ALERT */
+    .urgent-bar { background:#fdf0f0; border:2px solid #e8b0b0; border-radius:10px; padding:18px 24px; margin:0 48px 28px; }
+    .urgent-bar h3 { font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
+    .urgent-bar p { font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; color:#6b1010; line-height:1.6; }
 
-    /* ─── PRIORITY BAR ─── */
-    .priority-bar {
-      background: var(--navy);
-      color: #fff;
-      margin: 0 48px 40px;
-      border-radius: 12px;
-      padding: 24px 28px;
-    }
-    .priority-bar h3 {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 16px;
-    }
-    .actions-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .actions-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-    .action-num {
-      background: var(--teal);
-      color: #fff;
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .actions-list li span { color: rgba(255,255,255,0.85); }
-    .actions-list li strong { color: #fff; }
+    /* PRIORITY BAR */
+    .priority-bar { background:var(--navy); color:#fff; margin:0 48px 40px; border-radius:12px; padding:24px 28px; }
+    .priority-bar h3 { font-family:'Helvetica Neue',Arial,sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+    .actions-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .actions-list li { display:flex; align-items:flex-start; gap:12px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; line-height:1.5; }
+    .action-num { background:var(--teal); color:#fff; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; margin-top:1px; }
+    .actions-list li span { color:rgba(255,255,255,.85); }
+    .actions-list li strong { color:#fff; }
 
-    /* ─── MAIN CONTENT ─── */
-    .content { padding: 0 48px 60px; }
+    /* CONTENT */
+    .content { padding:0 48px 60px; }
+    .section { margin-bottom:52px; }
+    .section-header { display:flex; align-items:center; gap:14px; margin-bottom:24px; padding-bottom:12px; border-bottom:2px solid var(--gray-mid); flex-wrap:wrap; }
+    .section-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .icon-phage { background:#e8f7f7; } .icon-drug { background:#e8f0ff; }
+    .icon-surgery { background:#fff0e8; } .icon-palliative { background:#f0f0f0; }
+    .icon-alert { background:#fde8e8; }
+    .section-header h2 { font-size:clamp(16px,2vw,21px); font-weight:normal; color:var(--navy); line-height:1.2; }
+    .badge { font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:12px; flex-shrink:0; }
+    .badge-hot { background:#fde8e8; color:var(--red); }
+    .badge-new { background:#e0f5e9; color:#1a7c3c; }
+    .badge-consider { background:#e8f0ff; color:#1a3a9c; }
+    .badge-urgent { background:#fde8e8; color:var(--red); }
+    .badge-palliative { background:#f0f0f0; color:#555; }
 
-    .section {
-      margin-bottom: 52px;
-    }
+    /* CARDS */
+    .cards { display:flex; flex-direction:column; gap:20px; }
+    .card { background:var(--white); border-radius:14px; padding:26px 28px; box-shadow:0 2px 14px rgba(0,0,0,.06); }
+    .card:hover { box-shadow:0 4px 24px rgba(0,0,0,.10); }
+    .card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px; }
+    .card h3 { font-size:17px; font-weight:normal; color:var(--navy); line-height:1.3; }
+    .card-pills { display:flex; gap:6px; flex-wrap:wrap; }
+    .pill { font-family:'Helvetica Neue',Arial,sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 9px; border-radius:10px; white-space:nowrap; }
+    .pill-teal { background:#e0f5f5; color:#0b6665; }
+    .pill-amber { background:#fff3cd; color:#7a5100; }
+    .pill-green { background:#e0f5e9; color:#1a7c3c; }
+    .pill-red { background:#fde8e8; color:var(--red); }
+    .pill-blue { background:#e8f0ff; color:#1a3a9c; }
+    .pill-gray { background:#f0f0f0; color:#555; }
+    .pill-purple { background:#f0e8ff; color:#5a1a9c; }
+    .pill-orange { background:#fff0e0; color:#8a4000; }
+    .card p { font-size:15px; color:#333; margin-bottom:12px; line-height:1.7; }
+    .card ul { margin:8px 0 12px 0; padding-left:20px; }
+    .card ul li { font-size:14px; color:#444; margin-bottom:6px; line-height:1.6; }
+    .card ul li strong { color:var(--navy); }
+    .card-footer { display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:16px; padding-top:14px; border-top:1px solid var(--gray-light); }
+    .card-footer .source { font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; color:var(--text-muted); }
+    .card-footer a { font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; color:var(--teal); text-decoration:none; }
+    .card-footer a:hover { text-decoration:underline; }
+    .highlight-box { background:var(--gray-light); border-left:3px solid var(--teal); border-radius:0 8px 8px 0; padding:12px 16px; margin:12px 0; font-size:14px; line-height:1.6; }
+    .highlight-box strong { color:var(--navy); }
+    .alert-box { background:#fdf5e8; border-left:3px solid var(--amber); border-radius:0 8px 8px 0; padding:12px 16px; margin:12px 0; font-size:14px; line-height:1.6; }
+    .contact-box { background:#e8f7f7; border:1px solid #b0e0df; border-radius:10px; padding:14px 18px; margin-top:14px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; }
+    .contact-box .contact-title { font-weight:700; color:var(--teal); font-size:11px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px; }
+    .contact-box p { font-size:13px; color:#2a4a49; margin-bottom:3px; }
+    .contact-box a { color:var(--teal); text-decoration:none; }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--gray-mid);
-    }
-    .section-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .icon-phage { background: #e8f7f7; }
-    .icon-drug { background: #e8f0ff; }
-    .icon-surgery { background: #fff0e8; }
-    .icon-palliative { background: #f0f0f0; }
-    .icon-action { background: #fffbe8; }
+    /* PHAGE TABLE */
+    .phage-table { width:100%; border-collapse:collapse; margin:16px 0; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; }
+    .phage-table th { background:var(--navy); color:#fff; padding:10px 14px; text-align:left; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+    .phage-table td { padding:10px 14px; border-bottom:1px solid var(--gray-mid); vertical-align:top; line-height:1.5; }
+    .phage-table tr:nth-child(even) td { background:var(--gray-light); }
+    .phage-table td:first-child { font-weight:600; color:var(--navy); min-width:180px; }
+    .phage-table a { color:var(--teal); text-decoration:none; }
 
-    .section-header h2 {
-      font-size: clamp(16px, 2vw, 21px);
-      font-weight: normal;
-      color: var(--navy);
-      line-height: 1.2;
-    }
-    .section-header .badge {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 12px;
-      flex-shrink: 0;
-    }
-    .badge-hot { background: #fde8e8; color: var(--red); }
-    .badge-new { background: #e0f5e9; color: #1a7c3c; }
-    .badge-consider { background: #e8f0ff; color: #1a3a9c; }
-    .badge-palliative { background: #f0f0f0; color: #555; }
+    .divider { border:none; border-top:1px solid var(--gray-mid); margin:0 48px 48px; }
+    .page-footer { background:var(--navy); color:rgba(255,255,255,.55); text-align:center; padding:28px 48px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; line-height:1.7; }
+    .page-footer strong { color:rgba(255,255,255,.8); }
 
-    /* ─── CARDS ─── */
-    .cards { display: flex; flex-direction: column; gap: 20px; }
-
-    .card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 26px 28px;
-      box-shadow: 0 2px 14px rgba(0,0,0,0.06);
-      position: relative;
-      transition: box-shadow 0.2s;
-    }
-    .card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.10); }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .card h3 {
-      font-size: 17px;
-      font-weight: normal;
-      color: var(--navy);
-      line-height: 1.3;
-    }
-    .card-pills {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .pill {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 3px 9px;
-      border-radius: 10px;
-      white-space: nowrap;
-    }
-    .pill-teal { background: #e0f5f5; color: #0b6665; }
-    .pill-amber { background: #fff3cd; color: #7a5100; }
-    .pill-green { background: #e0f5e9; color: #1a7c3c; }
-    .pill-red { background: #fde8e8; color: var(--red); }
-    .pill-blue { background: #e8f0ff; color: #1a3a9c; }
-    .pill-gray { background: #f0f0f0; color: #555; }
-    .pill-purple { background: #f0e8ff; color: #5a1a9c; }
-
-    .card p {
-      font-size: 15px;
-      color: #333;
-      margin-bottom: 12px;
-      line-height: 1.7;
-    }
-    .card ul {
-      margin: 8px 0 12px 0;
-      padding-left: 20px;
-    }
-    .card ul li {
-      font-size: 14px;
-      color: #444;
-      margin-bottom: 6px;
-      line-height: 1.6;
-    }
-    .card ul li strong { color: var(--navy); }
-
-    .card-footer {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid var(--gray-light);
-    }
-    .card-footer .source {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    .card-footer a {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 12px;
-      color: var(--teal);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .card-footer a:hover { text-decoration: underline; }
-
-    /* highlight box inside card */
-    .highlight-box {
-      background: var(--gray-light);
-      border-left: 3px solid var(--teal);
-      border-radius: 0 8px 8px 0;
-      padding: 12px 16px;
-      margin: 12px 0;
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .highlight-box strong { color: var(--navy); }
-
-    .contact-box {
-      background: #e8f7f7;
-      border: 1px solid #b0e0df;
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin-top: 14px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 13px;
-    }
-    .contact-box .contact-title {
-      font-weight: 700;
-      color: var(--teal);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
-    }
-    .contact-box p { font-size: 13px; color: #2a4a49; margin-bottom: 2px; }
-    .contact-box a { color: var(--teal); text-decoration: none; }
-    .contact-box a:hover { text-decoration: underline; }
-
-    /* ─── DIVIDER ─── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--gray-mid);
-      margin: 0 48px 48px;
-    }
-
-    /* ─── FOOTER ─── */
-    .page-footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.55);
-      text-align: center;
-      padding: 28px 48px;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      font-size: 12px;
-      line-height: 1.7;
-    }
-    .page-footer strong { color: rgba(255,255,255,0.8); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 680px) {
-      .hero, .case-box, .warning-bar, .priority-bar, .content { padding-left: 20px; padding-right: 20px; }
-      .case-box, .warning-bar, .priority-bar, .divider { margin-left: 20px; margin-right: 20px; }
-      .hero-meta { gap: 14px; }
+    @media(max-width:680px){
+      .hero,.case-box,.warning-bar,.urgent-bar,.priority-bar,.content{padding-left:20px;padding-right:20px;}
+      .case-box,.warning-bar,.urgent-bar,.priority-bar,.divider{margin-left:20px;margin-right:20px;}
+      .phage-table{display:block;overflow-x:auto;}
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════════ HERO ═══════════ -->
 <header class="hero">
   <div class="hero-tag">Medical Research Compendium · Confidential</div>
-  <h1>Refractory Prosthetic Valve Endocarditis<br><em>Advanced & Experimental Treatment Options</em></h1>
-  <p class="hero-sub">A deep-dive literature review and clinical contact directory prepared for Wolfgang, covering bacteriophage therapy, salvage antimicrobials, specialist surgical second opinions, and palliative strategies for <em>Staphylococcus aureus</em> PVE deemed inoperable by prior consultation.</p>
+  <h1>Refractory Prosthetic Valve Endocarditis<br><em>Advanced &amp; Experimental Treatment Options</em></h1>
+  <p class="hero-sub">A comprehensive literature review and clinical contact directory prepared for Wolfgang — covering bacteriophage therapy, salvage antimicrobials, endovascular intervention, specialist surgical second opinions, and palliative strategies for <em>Staphylococcus aureus</em> PVE deemed inoperable by prior consultation.</p>
   <div class="hero-meta">
     <span class="meta-chip">📅 <strong>Compiled:</strong> May 2025</span>
-    <span class="meta-chip">📚 <strong>Sources:</strong> PubMed · NEJM · ESC Guidelines · IDWeek 2025 · ClinicalTrials.gov</span>
+    <span class="meta-chip">📚 <strong>Sources:</strong> PubMed · NEJM · ESC Guidelines · IDWeek 2025 · Nat Microbiol · ClinicalTrials.gov</span>
     <span class="meta-chip">⚕️ <strong>Prepared by:</strong> OpenBrain AI Research</span>
   </div>
 </header>
 
-<!-- ═══════════ CASE SUMMARY ═══════════ -->
 <div class="case-box">
   <h2>Patient Snapshot</h2>
   <div class="case-grid">
-    <div class="case-item">
-      <div class="label">Demographics</div>
-      <div class="value">63-year-old male</div>
-    </div>
-    <div class="case-item">
-      <div class="label">Pathogen</div>
-      <div class="value"><em>Staphylococcus aureus</em> (prosthetic valve endocarditis)</div>
-    </div>
-    <div class="case-item">
-      <div class="label">Prior Surgical History</div>
-      <div class="value">Mechanical AVR + extensive aortic/aortic arch graft prostheses</div>
-    </div>
-    <div class="case-item">
-      <div class="label">Active Complications</div>
-      <div class="value">Periannular/aortic root abscess · perfused pseudoaneurysm · mitral apparatus extension · prior septic emboli</div>
-    </div>
-    <div class="case-item">
-      <div class="label">Blood Cultures</div>
-      <div class="value">Now negative after prolonged IV antibiotics</div>
-    </div>
-    <div class="case-item">
-      <div class="label">Surgical Assessment</div>
-      <div class="value">Technically feasible but deemed prohibitively high-risk by multiple German cardiac surgical teams</div>
-    </div>
-    <div class="case-item">
-      <div class="label">Current Management</div>
-      <div class="value">Conservative / palliative · suppressive antimicrobial therapy</div>
-    </div>
+    <div class="case-item"><div class="label">Demographics</div><div class="value">63-year-old male</div></div>
+    <div class="case-item"><div class="label">Pathogen</div><div class="value"><em>Staphylococcus aureus</em> prosthetic valve endocarditis (PVE)</div></div>
+    <div class="case-item"><div class="label">Prior Surgical History</div><div class="value">Mechanical AVR + extensive aortic/aortic arch graft prostheses</div></div>
+    <div class="case-item"><div class="label">Active Complications</div><div class="value">Periannular/aortic root abscess · perfused pseudoaneurysm · mitral apparatus extension · prior septic emboli</div></div>
+    <div class="case-item"><div class="label">Blood Cultures</div><div class="value">Now negative after prolonged IV antibiotics</div></div>
+    <div class="case-item"><div class="label">Surgical Assessment</div><div class="value">Technically feasible but deemed prohibitively high-risk by multiple German cardiac surgical teams</div></div>
+    <div class="case-item"><div class="label">Current Management</div><div class="value">Conservative / palliative · suppressive antimicrobial therapy</div></div>
   </div>
 </div>
 
-<!-- ═══════════ DISCLAIMER ═══════════ -->
-<div class="warning-bar">
-  <span class="icon">⚠️</span>
-  <span><strong>This document is for informational purposes only</strong> and does not constitute medical advice. Every avenue listed below requires evaluation by the patient's treating physicians. The patient's specific antibiogram (MICs, resistance profile, susceptibilities) is critical before any antimicrobial escalation. All compassionate-use and experimental paths require institutional approval and physician sponsorship.</span>
+<div class="urgent-bar" style="margin:0 48px 28px;">
+  <h3>⚠️ Most Urgent Mechanical Risk</h3>
+  <p>The <strong>perfused pseudoaneurysm</strong> adjacent to the valve/abscess complex is the <strong>single most likely acute lethal event</strong> in this case — rupture can occur without warning. This requires urgent discussion with an aortic interventional team regardless of which other therapeutic paths are pursued. See Section 4 for endovascular bridging options.</p>
 </div>
 
-<!-- ═══════════ PRIORITY ACTIONS ═══════════ -->
+<div class="warning-bar">
+  <span style="font-size:17px;flex-shrink:0;">⚠️</span>
+  <span><strong>This document is for informational purposes only</strong> and does not constitute medical advice. All clinical decisions must be made by qualified physicians with full access to the patient's medical history, imaging, and antibiogram. Experimental and compassionate-use pathways require institutional approval and physician sponsorship.</span>
+</div>
+
 <div class="priority-bar">
-  <h3>🎯 Top Priority Actions — Right Now</h3>
+  <h3>🎯 Top Priority Actions — In Parallel, Right Now</h3>
   <ol class="actions-list">
-    <li>
-      <span class="action-num">1</span>
-      <span><strong>Contact IPATH (UC San Diego)</strong> — Have the treating physician email IPATH directly. They assess S. aureus PVE for compassionate phage therapy under FDA IND. This is the fastest legitimate path to IV phage access.</span>
-    </li>
-    <li>
-      <span class="action-num">2</span>
-      <span><strong>Request virtual second surgical opinion at Cleveland Clinic</strong> — They offer remote cardiology second opinions internationally and have a dedicated redo heart surgery center. Their endocarditis mortality for redo cases is reported at ~2–3%.</span>
-    </li>
-    <li>
-      <span class="action-num">3</span>
-      <span><strong>Ask if Daptomycin + Ceftaroline combination has been tried</strong> — Documented case series show successful treatment of refractory S. aureus aortic PVE with this combination when vancomycin failed.</span>
-    </li>
-    <li>
-      <span class="action-num">4</span>
-      <span><strong>Inquire about Armata Pharmaceuticals AP-SA02 compassionate access</strong> — Positive Phase 2a data released October 2025; they may accept compassionate use referrals for severe refractory S. aureus cases.</span>
-    </li>
-    <li>
-      <span class="action-num">5</span>
-      <span><strong>DHZC Charité Berlin for German second surgical opinion</strong> — Germany's largest heart center; handles extreme redo cases. Geographic proximity to the patient makes this practical.</span>
-    </li>
+    <li><span class="action-num">1</span><span><strong>Contact 2–3 phage programs simultaneously</strong> — IPATH UCSD, Hannover MHH (closest German program), and PHAXIAM Lyon or Brussels QAMH. Don't wait for one answer before contacting the next.</span></li>
+    <li><span class="action-num">2</span><span><strong>Urgent aortic interventional consult for pseudoaneurysm</strong> — Cleveland Aorta Center, Hannover, or West German Heart Center Essen. Discuss covered endovascular stent-graft as bridge. Rupture risk is immediate.</span></li>
+    <li><span class="action-num">3</span><span><strong>Ask if Daptomycin (8–10 mg/kg) + Ceftaroline/Ceftobiprole ± Fosfomycin has been tried</strong> — if not, this is the next antimicrobial escalation with documented case success in refractory S. aureus aortic PVE.</span></li>
+    <li><span class="action-num">4</span><span><strong>Virtual second surgical opinion at Cleveland Clinic</strong> — Pettersson / Roselli / Elgharably team; ~200 endocarditis operations/year, published approach to circumferential root abscess with mitral extension that other centers decline.</span></li>
+    <li><span class="action-num">5</span><span><strong>German surgical second opinion at Hannover MHH or West German Heart Center Essen</strong> — logistically practical, high volume, and Hannover has unique combined phage + cardiac surgery expertise.</span></li>
   </ol>
 </div>
 
 <div class="content">
 
-<!-- ════════════════════════════════════
+<!-- ══════════════════════════════════
      SECTION 1: BACTERIOPHAGE
-════════════════════════════════════ -->
+══════════════════════════════════ -->
 <div class="section">
   <div class="section-header">
     <div class="section-icon icon-phage">🦠</div>
-    <div>
-      <h2>Bacteriophage Therapy</h2>
-    </div>
-    <span class="badge badge-hot">Highest Upside</span>
+    <h2>Bacteriophage Therapy</h2>
+    <span class="badge badge-hot">Highest Upside · Pursue Multiple Programs in Parallel</span>
   </div>
 
-  <p style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; color:var(--text-muted); margin-bottom:20px; max-width:720px;">
-    Bacteriophages (viruses that specifically infect bacteria) represent the most promising frontier for refractory prosthetic S. aureus infections. Their ability to penetrate biofilms on prosthetic material — which antibiotics struggle to eradicate — makes them particularly relevant here. Several documented human cases of IV phage therapy for S. aureus PVE now exist.
+  <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--text-muted);margin-bottom:16px;max-width:760px;">
+    Bacteriophages penetrate biofilm on prosthetic material — a property that antibiotics fundamentally lack. There is a <strong>published IV phage case in exactly this scenario</strong> (mechanical AVR PVE + paravalvular root abscess, non-operative candidate) that achieved complete recovery. Belgian and French compassionate registries now report ~75–80% infection control at 3 months when phage is added to antibiotics for prosthesis-associated S. aureus infections. Contact all relevant programs simultaneously — phage strain matching takes time and parallel outreach is strongly recommended.
   </p>
 
+  <div class="highlight-box" style="margin-bottom:20px;">
+    <strong>Direct precedent:</strong> Gilbey et al. (Med J Aust, 2019) — first IV phage (AB-SA01, three-phage Myoviridae cocktail) for a patient with prosthetic AVR endocarditis + native mitral involvement + paravalvular root abscess deemed non-operative. Given 2×/day IV for 14 days alongside antibiotics. <strong>Complete recovery, no adverse events.</strong>
+  </div>
+
+  <table class="phage-table">
+    <thead>
+      <tr>
+        <th>Center</th>
+        <th>Contact / Access</th>
+        <th>Key Strengths</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>UC San Diego IPATH<br><span style="font-weight:normal;color:#666;font-size:12px;">San Diego, USA</span></td>
+        <td>Physician emails <strong>ipath@health.ucsd.edu</strong><br>Leads: Strathdee, Schooley, Aslam (cardiac lead)<br><a href="https://idgph.ucsd.edu/research/center-innovative-phage-applications-and-therapeutics/" target="_blank">idgph.ucsd.edu</a></td>
+        <td>First dedicated US phage center. Largest US experience. Explicitly prioritizes cardiac device infections. Helps draft FDA single-patient eIND. Anti-S. aureus phage relationships with Armata, Adaptive Phage Therapeutics.</td>
+      </tr>
+      <tr>
+        <td>Hannover Medical School (MHH)<br><span style="font-weight:normal;color:#666;font-size:12px;">Hannover, Germany 🇩🇪</span></td>
+        <td>Dr. Evgenii Rubalskii (direct email): <strong>Rubalskii.Evgenii@mh-hannover.de</strong><br>Dept. Cardiothoracic, Transplantation &amp; Vascular Surgery</td>
+        <td><strong>Only German center</strong> with published phage experience in aortic graft and LVAD infections. Rubalskii et al. (Antibiotics, 2020) documented S. aureus and Pseudomonas aortic graft/LVAD cases treated with locally and systemically delivered phages. Directly relevant institutional context for this patient. Also a top-tier surgical second opinion center.</td>
+      </tr>
+      <tr>
+        <td>PHAXIAM Therapeutics<br><span style="font-weight:normal;color:#666;font-size:12px;">Lyon, France 🇫🇷 (closest to Germany)</span></td>
+        <td>Clinical PI: Prof. Tristan Ferry (Hospices Civils de Lyon)<br>French AAC (compassionate access via ANSM); international patients enrolled through partner hospital.<br><a href="https://www.phaxiam.com" target="_blank">phaxiam.com</a></td>
+        <td>Largest GMP compassionate phage program in continental Europe. <strong>79% infection control at 3 months</strong> in 88 evaluable patients with S. aureus/Pseudomonas prosthetic infections (Jan 2025 update). Endocarditis already treated under compassionate program. Phase I endocarditis study underway. GMP-grade anti-S. aureus phages (PP1493, PP1815, PP1957 lineage). Geographically closest major program to a German patient.</td>
+      </tr>
+      <tr>
+        <td>Queen Astrid Military Hospital (QAMH)<br><span style="font-weight:normal;color:#666;font-size:12px;">Brussels, Belgium 🇧🇪</span></td>
+        <td>Dr. Jean-Paul Pirnay (accepts international consultations)<br>Sarah Djebara (clinical coordinator)<br>Belgian "magistral phage" pathway<br><a href="https://www.militairehospitaal.be" target="_blank">militairehospitaal.be</a></td>
+        <td>Pirnay et al. (Nat Microbiol, 2024) — landmark retrospective of <strong>100 consecutive personalized compassionate phage cases</strong> across 8 institutes, 12 countries. S. aureus is the second most common target organism. Supplies phages to partner centers in Spain, France, Israel. Western Europe's largest cohort of individualized phage therapy.</td>
+      </tr>
+      <tr>
+        <td>Mayo Clinic Phage Therapy Program<br><span style="font-weight:normal;color:#666;font-size:12px;">Rochester, MN, USA</span></td>
+        <td>Dr. Gina A. Suh (founder/director)<br>Dr. Robin Patel (microbiology)<br>Referral via Mayo ID consult / Center for Individualized Medicine<br><a href="https://www.mayoclinic.org" target="_blank">mayoclinic.org</a></td>
+        <td>Treated LVAD infection with phage as bridge to heart transplant (published case). Closest published Mayo precedent to this cardiac hardware scenario. Combines phage expertise with world-class cardiac surgery — unique dual capability.</td>
+      </tr>
+      <tr>
+        <td>Armata Pharmaceuticals — AP-SA02<br><span style="font-weight:normal;color:#666;font-size:12px;">Los Angeles, USA</span></td>
+        <td>Medical Affairs via <a href="https://www.armatapharma.com/pipeline/ap-sa02/" target="_blank">armatapharma.com</a><br>Compassionate / expanded access inquiry</td>
+        <td>Most advanced RCT data: Phase 2a diSArm (IDWeek 2025) — AP-SA02 + best-available therapy produced <strong>median bacteremia clearance in 2.7 days vs 9.3 days placebo</strong> (n=19 with endocarditis subjects). Highest-quality randomized evidence for IV anti-S. aureus phage.</td>
+      </tr>
+      <tr>
+        <td>Eliava Phage Therapy Center<br><span style="font-weight:normal;color:#666;font-size:12px;">Tbilisi, Georgia 🇬🇪</span></td>
+        <td>Direct contact: <a href="https://eptc.ge" target="_blank">eptc.ge</a><br>Distance-treatment option available; telemedicine supervision<br>≈ €2,400 + €100 phagogram</td>
+        <td>World's largest phage bank. Over 100 years of experience. Can prepare <strong>custom autophages tested against the patient's specific S. aureus isolate</strong>. Accepts international patients; can ship phage preparations to patient's country. A bacterial culture/frozen isolate enables phage susceptibility testing before travel.</td>
+      </tr>
+      <tr>
+        <td>Wrocław Phage Therapy Center<br><span style="font-weight:normal;color:#666;font-size:12px;">Wrocław, Poland 🇵🇱</span></td>
+        <td>Hirszfeld Institute of Immunology and Experimental Therapy<br><a href="https://www.iitd.pan.wroc.pl/en" target="_blank">iitd.pan.wroc.pl/en</a></td>
+        <td>Only formally regulated EU phage therapy program; open since 2005. Strong S. aureus phage library. Short-haul from Germany. Coordinates a nationwide Polish network of hospitals with phage experience.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════
+     SECTION 2: ENDOVASCULAR (NEW)
+══════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon icon-alert">🩺</div>
+    <h2>Endovascular Intervention — Pseudoaneurysm Exclusion</h2>
+    <span class="badge badge-urgent">Urgent · Time-Sensitive</span>
+  </div>
+
   <div class="cards">
-
-    <!-- IPATH -->
     <div class="card">
       <div class="card-top">
-        <h3>IPATH — UC San Diego Center for Innovative Phage Applications</h3>
+        <h3>Covered Endovascular Stent-Graft — Percutaneous Pseudoaneurysm Exclusion</h3>
         <div class="card-pills">
-          <span class="pill pill-teal">USA</span>
-          <span class="pill pill-amber">Compassionate Use / FDA IND</span>
-          <span class="pill pill-green">Active Program</span>
+          <span class="pill pill-red">Rupture Risk = Most Likely Lethal Event</span>
+          <span class="pill pill-amber">Bridge or Definitive Palliation</span>
+          <span class="pill pill-orange">Discuss Urgently</span>
         </div>
       </div>
-      <p>The premier US institution for compassionate IV phage therapy. Created in 2018 by Dr. Robert Schooley and Dr. Steffanie Strathdee — the world's leading phage clinicians — IPATH has treated S. aureus PVE cases with intravenous phage under FDA's compassionate use framework. They operate as consultants to the treating physician, not as a replacement care team.</p>
-      <div class="highlight-box">
-        <strong>How it works:</strong> The treating physician contacts IPATH by email with the patient's case details and antibiogram. IPATH evaluates whether phage therapy is viable, identifies appropriate phage strains, guides the FDA emergency/special IND application, and connects the team to phage manufacturing. Timeline from initial contact to first administration has been as short as 2–4 weeks in emergency cases.
+      <p>The perfused pseudoaneurysm adjacent to the valve/abscess complex represents the most immediate mechanical threat in this case. While surgical correction remains the gold standard, a <strong>covered endovascular stent-graft (ascending-aorta cuff / TEVAR-style)</strong> can be deployed percutaneously to exclude the pseudoaneurysm lumen — eliminating rupture risk without open surgery.</p>
+      <div class="alert-box">
+        <strong>Published precedent:</strong> Case reports document successful percutaneous exclusion of mycotic ascending aortic pseudoaneurysms using covered stent-grafts in combination with prolonged antibiotics in MSSA patients. The approach has been used as both a bridge to definitive surgery and as definitive palliation in non-operative candidates.
       </div>
       <ul>
-        <li><strong>Case precedent:</strong> Documented IV phage therapy for S. aureus PVE included in IPATH's published series (Schooley et al., Open Forum Infectious Diseases 2020)</li>
-        <li><strong>Phage source:</strong> Coordinates with AmpliPhi/Armata, Naval Medical Research, and university labs to identify patient-specific active phages</li>
-        <li><strong>Lead investigators:</strong> Prof. Robert Schooley (rschooley@ucsd.edu) · Prof. Steffanie Strathdee</li>
-        <li><strong>Process:</strong> Physician-to-physician referral; patient authorization to share records required</li>
+        <li><strong>Mechanism:</strong> Covered stent-graft deployed via femoral artery access, excluding the pseudoaneurysm sac from the aortic lumen — eliminates pulsatile pressure on the infected wall</li>
+        <li><strong>Does not cure the underlying infection</strong> — must be combined with ongoing antimicrobial therapy and/or phage therapy</li>
+        <li><strong>Technical consideration:</strong> The proximity to the aortic valve and prosthetic material requires precise sizing and positioning — only experienced aortic centers should attempt this</li>
+        <li><strong>Who to contact immediately:</strong> Cleveland Aorta Center (Cleveland Clinic), Hannover MHH Vascular Surgery, West German Heart and Vascular Center Essen, Baylor/Texas Heart Institute (Coselli group)</li>
       </ul>
       <div class="contact-box">
-        <div class="contact-title">📬 Contact</div>
-        <p><strong>Web:</strong> <a href="https://idgph.ucsd.edu/research/center-innovative-phage-applications-and-therapeutics/" target="_blank">idgph.ucsd.edu/research/center-innovative-phage-applications-and-therapeutics/</a></p>
-        <p><strong>Contact page:</strong> <a href="https://medschool.ucsd.edu/som/medicine/divisions/idgph/research/center-innovative-phage-applications-and-therapeutics/about/Pages/Contact-Us.aspx" target="_blank">IPATH Contact Us</a></p>
-        <p><strong>Access pathway:</strong> Physician initiates contact via email; case is reviewed confidentially</p>
+        <div class="contact-title">📬 Relevant Centers for This Discussion</div>
+        <p><strong>Cleveland Clinic Aorta Center:</strong> my.clevelandclinic.org — also offers virtual second opinion</p>
+        <p><strong>Hannover MHH:</strong> Dept. Cardiothoracic, Transplantation &amp; Vascular Surgery — same team as phage contact above</p>
+        <p><strong>West German Heart and Vascular Center Essen:</strong> uk-essen.de/herzchirurgie</p>
+        <p><strong>German Heart Center Munich:</strong> dhm.mhn.de</p>
       </div>
       <div class="card-footer">
-        <span class="source">📄 Schooley et al. (2020) · Open Forum Infectious Diseases</span>
-        <span class="source">📄 Gilbey et al. (2019) · Antibiotics — S. aureus PVE case</span>
+        <span class="source">📄 Ann Thorac Surg Short Reports — mycotic ascending pseudoaneurysm endovascular exclusion case series</span>
+        <span class="source">📄 PubMed — percutaneous management mycotic aortic pseudoaneurysm</span>
       </div>
     </div>
-
-    <!-- Armata AP-SA02 -->
-    <div class="card">
-      <div class="card-top">
-        <h3>Armata Pharmaceuticals — AP-SA02 (Anti-Staph Phage Cocktail)</h3>
-        <div class="card-pills">
-          <span class="pill pill-teal">USA</span>
-          <span class="pill pill-green">Phase 2a — Positive Results Oct 2025</span>
-          <span class="pill pill-amber">Compassionate Access Possible</span>
-        </div>
-      </div>
-      <p>AP-SA02 is currently the most clinically advanced anti-<em>S. aureus</em> phage product in the United States. At IDWeek 2025 (October 2025), Armata presented positive Phase 1b/2a randomised trial results showing that IV AP-SA02 + antibiotics achieved <strong>earlier resolution of S. aureus bacteremia</strong> compared to antibiotics alone — a major milestone.</p>
-      <div class="highlight-box">
-        <strong>Why it matters here:</strong> The diSArm trial enrolled patients with complicated S. aureus bacteremia, including those with endocarditis and prosthetic material. Armata has a strong precedent for supporting compassionate use in severe refractory cases alongside their clinical program.
-      </div>
-      <ul>
-        <li>IV cocktail of multiple obligately lytic Myoviridae phages targeting S. aureus</li>
-        <li>Designed to complement (not replace) antibiotic therapy — synergy is the mechanism</li>
-        <li>Current clinical focus: complicated bacteremia / endocarditis — directly relevant</li>
-        <li>Compassionate use inquiries: contact their medical affairs team via the pipeline page</li>
-      </ul>
-      <div class="contact-box">
-        <div class="contact-title">📬 Contact</div>
-        <p><strong>Web:</strong> <a href="https://www.armatapharma.com/pipeline/ap-sa02/" target="_blank">armatapharma.com/pipeline/ap-sa02/</a></p>
-        <p><strong>Inquiry:</strong> Medical Affairs via corporate website — reference compassionate use for severe refractory S. aureus endocarditis</p>
-      </div>
-      <div class="card-footer">
-        <span class="source">📄 Armata diSArm Phase 2a — IDWeek 2025 Late-Breaking Oral Presentation</span>
-        <span class="source">📄 Fierce Biotech — May 2025 · Clinical Trials Arena — Oct 2025</span>
-      </div>
-    </div>
-
-    <!-- Eliava Institute -->
-    <div class="card">
-      <div class="card-top">
-        <h3>Eliava Institute / Eliava Phage Therapy Center — Tbilisi, Georgia</h3>
-        <div class="card-pills">
-          <span class="pill pill-purple">Georgia (EU-adjacent)</span>
-          <span class="pill pill-green">Open to International Patients</span>
-          <span class="pill pill-teal">Personalized Phage Compositions</span>
-        </div>
-      </div>
-      <p>The world's oldest functioning phage therapy institution, operating since the 1920s. The Eliava Institute maintains vast libraries of anti-staphylococcal phages and offers personalized/adapted phage preparations. They have shipped phage preparations to patients in France, Australia, the United States, and across Europe for individualized treatment of severe refractory infections.</p>
-      <div class="highlight-box">
-        <strong>Unique advantage:</strong> Eliava can prepare a <em>customized</em> phage cocktail tested against the patient's specific bacterial isolate (if a live culture or sample is available). This individualization may be critical given the complexity and chronicity of this case.
-      </div>
-      <ul>
-        <li>Accepts international cases; supports travel coordination and preliminary assessment remotely</li>
-        <li>Coordinates with the patient's existing physicians</li>
-        <li>As of 2024–2025, they have updated clinical protocols and accept consultation inquiries online</li>
-        <li>A bacterial culture or frozen isolate from the patient would enable phage susceptibility testing before any visit</li>
-      </ul>
-      <div class="contact-box">
-        <div class="contact-title">📬 Contact</div>
-        <p><strong>Web:</strong> <a href="https://eptc.ge" target="_blank">eptc.ge</a> · <a href="https://www.phagetherapygeorgia.eu" target="_blank">phagetherapygeorgia.eu</a></p>
-        <p><strong>Process:</strong> Submit case summary online for preliminary assessment; they advise on feasibility before travel</p>
-      </div>
-      <div class="card-footer">
-        <span class="source">📄 PMC — Current State of Compassionate Phage Therapy (2019)</span>
-        <span class="source">📄 Phage Therapy Georgia — 2024–2025 Clinical Advances</span>
-      </div>
-    </div>
-
-    <!-- Poland -->
-    <div class="card">
-      <div class="card-top">
-        <h3>Phage Therapy Center — Wrocław, Poland (Hirszfeld Institute)</h3>
-        <div class="card-pills">
-          <span class="pill pill-blue">European Union</span>
-          <span class="pill pill-green">Open Since 2005</span>
-          <span class="pill pill-teal">Accepts International Patients</span>
-        </div>
-      </div>
-      <p>The Hirszfeld Institute of Immunology and Experimental Therapy in Wrocław has operated the world's only formally regulated EU phage therapy program since 2005. They accept international patients meeting their clinical criteria and treat under a compassionate-use framework with institutional oversight.</p>
-      <ul>
-        <li>Strong S. aureus phage library developed over decades</li>
-        <li>Short-haul travel from Germany — practical for this patient's location</li>
-        <li>Requires prior medical documentation and bacterial isolate for phage matching</li>
-        <li>Coordinates a nationwide Polish network of hospitals with phage experience</li>
-      </ul>
-      <div class="contact-box">
-        <div class="contact-title">📬 Contact</div>
-        <p><strong>Institution:</strong> Hirszfeld Institute of Immunology and Experimental Therapy, Wrocław, Poland</p>
-        <p><strong>Web:</strong> <a href="https://www.iitd.pan.wroc.pl/en" target="_blank">iitd.pan.wroc.pl/en</a></p>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     SECTION 2: ANTIMICROBIALS
-════════════════════════════════════ -->
+<!-- ══════════════════════════════════
+     SECTION 3: ANTIMICROBIALS
+══════════════════════════════════ -->
 <div class="section">
   <div class="section-header">
     <div class="section-icon icon-drug">💊</div>
-    <div><h2>Salvage &amp; Novel Antimicrobial Strategies</h2></div>
-    <span class="badge badge-consider">Evidence-Based</span>
+    <h2>Salvage &amp; Novel Antimicrobial Strategies</h2>
+    <span class="badge badge-consider">Evidence-Based · Biofilm-Targeted</span>
   </div>
 
-  <p style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; color:var(--text-muted); margin-bottom:20px; max-width:720px;">
-    Standard-of-care antibiotics (vancomycin ± rifampin) have been tried. The following combinations and agents represent escalation options with documented activity against refractory biofilm-producing S. aureus on prosthetic material. All require knowledge of the patient's current MICs and susceptibilities.
+  <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--text-muted);margin-bottom:20px;max-width:760px;">
+    Standard-of-care antibiotics have been tried. The following combinations target biofilm-producing S. aureus on prosthetic material specifically. All require knowledge of current MICs. The goal is a "biofilm-tuned" regimen combining a cell-wall active agent + daptomycin + a biofilm penetrator, with long-term dalbavancin suppression once infection is biologically controlled.
   </p>
 
   <div class="cards">
-
-    <!-- Dapto + Ceftaroline -->
     <div class="card">
       <div class="card-top">
-        <h3>High-Dose Daptomycin + Ceftaroline — Synergistic Salvage Combination</h3>
+        <h3>High-Dose Daptomycin + Ceftaroline/Ceftobiprole ± Fosfomycin — The Biofilm Triple</h3>
         <div class="card-pills">
-          <span class="pill pill-green">Strong Case Evidence</span>
-          <span class="pill pill-teal">Biofilm Active</span>
+          <span class="pill pill-green">Strongest Case Evidence</span>
+          <span class="pill pill-teal">Anti-Biofilm</span>
           <span class="pill pill-amber">Available Now</span>
         </div>
       </div>
-      <p>This combination is the most evidence-supported salvage regimen for refractory S. aureus PVE when vancomycin has failed or is suboptimal. The synergy mechanism is well-characterized: ceftaroline (a 5th-gen cephalosporin with MRSA activity) restores daptomycin susceptibility and enhances membrane disruption, achieving bactericidal activity even against daptomycin-non-susceptible strains.</p>
+      <p>The most evidence-supported salvage regimen for refractory S. aureus PVE. Synergy between daptomycin and ceftaroline/ceftobiprole is well-characterized — the beta-lactam restores daptomycin susceptibility by modifying cell membrane phospholipid composition, achieving bactericidal activity even against daptomycin-non-susceptible strains. Adding fosfomycin IV (the "BACSARM-style" triple) provides additional biofilm penetration.</p>
       <div class="highlight-box">
-        <strong>Key publication:</strong> Successful treatment of MRSA aortic prosthetic valve endocarditis with <em>prolonged</em> high-dose daptomycin + ceftaroline was documented in PubMed (PMID 26058777) when all other agents failed. Additional case series (ASM 2019) showed superiority over standard monotherapy for left-sided PVE including prosthetic valves and intracardiac devices.
+        <strong>Key evidence:</strong> Published case: successful treatment of MRSA aortic PVE with prolonged high-dose daptomycin + ceftaroline when vancomycin failed (PMID 26058777). Synergistic checkerboard assays confirmed for daptomycin + ceftaroline + fosfomycin against high-inoculum daptomycin-non-susceptible MRSA — directly applicable to biofilm-embedded prosthetic infection.
       </div>
       <ul>
-        <li><strong>Daptomycin dose:</strong> 8–10 mg/kg/day IV (high-dose is critical — standard doses underpenetrate vegetations)</li>
-        <li><strong>Ceftaroline dose:</strong> 600 mg IV q8h or q12h</li>
-        <li><strong>Duration:</strong> Extended courses (8+ weeks) documented in prosthetic material infection</li>
-        <li><strong>Key prerequisite:</strong> Check daptomycin MIC — if elevated (≥1 µg/mL) or non-susceptible, ceftaroline combination is the specific fix</li>
-        <li>Adding fosfomycin IV as a third agent provides additional synergy per in vitro data</li>
+        <li><strong>Daptomycin:</strong> 8–10 mg/kg/day IV — high dose is critical; standard doses underpenetrate vegetations</li>
+        <li><strong>Ceftobiprole (Zevtera):</strong> 500 mg IV q8h — FDA approved 2023 for S. aureus bacteremia/endocarditis; NEJM Phase 3 RCT showed non-inferiority to daptomycin across complicated bacteremia spectrum</li>
+        <li><strong>Ceftaroline:</strong> 600 mg IV q8h — alternative if ceftobiprole unavailable; established synergy data</li>
+        <li><strong>Fosfomycin IV:</strong> 8g IV q6–8h or continuous infusion — available in Germany/EU without special access; biofilm penetration mechanism distinct from all other agents</li>
+        <li><strong>Rifampin:</strong> 300–450 mg q8–12h if susceptible — add only after blood cultures are confirmed negative (prevents resistance selection); unique activity against stationary-phase organisms in biofilm</li>
       </ul>
       <div class="card-footer">
         <span class="source">📄 PMID 26058777 — Daptomycin + Ceftaroline MRSA aortic PVE</span>
-        <span class="source">📄 ASM Antimicrobial Agents and Chemotherapy (2019)</span>
-        <span class="source">📄 MDPI Antibiotics — Daptomycin MRSA Review (June 2025)</span>
-      </div>
-    </div>
-
-    <!-- Ceftobiprole -->
-    <div class="card">
-      <div class="card-top">
-        <h3>Ceftobiprole (Zevtera) — FDA Approved 2023 for S. aureus Bacteremia & Endocarditis</h3>
-        <div class="card-pills">
-          <span class="pill pill-green">FDA Approved</span>
-          <span class="pill pill-green">NEJM RCT Data</span>
-          <span class="pill pill-blue">2023 / Available</span>
-        </div>
-      </div>
-      <p>Ceftobiprole is the newest FDA-approved agent (2023) specifically indicated for <em>S. aureus</em> bacteremia including right-sided endocarditis. A landmark NEJM Phase 3 RCT compared ceftobiprole directly to daptomycin ± aztreonam in 390 patients with complicated S. aureus bacteremia. Ceftobiprole was non-inferior with a favorable safety profile.</p>
-      <div class="highlight-box">
-        <strong>Why it matters for this case:</strong> Ceftobiprole has unique activity at penicillin-binding protein 2a (the MRSA resistance mechanism) and excellent tissue penetration including cardiac structures. It can be used as monotherapy or in combination with daptomycin. It has only been commercially available since late 2023, so it's possible the patient's team hasn't used it yet.
-      </div>
-      <ul>
-        <li>5th-generation cephalosporin — covers MRSA, MSSA, and CoNS</li>
-        <li>NEJM RCT (2023): 70-day overall treatment success — non-inferior to daptomycin across the full bacteremia spectrum including endocarditis subgroup</li>
-        <li>Dose: 500 mg IV over 2 hours q8h</li>
-        <li>Commercially available in the US (Zevtera) and Europe (Zevtera/Mabelio)</li>
-      </ul>
-      <div class="card-footer">
-        <span class="source">📄 NEJM — Ceftobiprole for S. aureus Bacteremia, Oct 2023</span>
-        <span class="source">📄 PubMed PMID 37754204</span>
-        <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2300220" target="_blank">→ Read NEJM trial</a>
-      </div>
-    </div>
-
-    <!-- Dalbavancin -->
-    <div class="card">
-      <div class="card-top">
-        <h3>Dalbavancin — Long-Acting Lipoglycopeptide for Outpatient Suppression</h3>
-        <div class="card-pills">
-          <span class="pill pill-blue">Suppressive Strategy</span>
-          <span class="pill pill-teal">Weekly IV Dosing</span>
-          <span class="pill pill-amber">Practical for Chronic Management</span>
-        </div>
-      </div>
-      <p>Dalbavancin has a half-life of approximately 14 days, enabling weekly IV dosing on an outpatient basis. A 2024 systematic review confirmed its use as sequential therapy for infective endocarditis when prolonged IV access is problematic or oral agents are inadequate. It's not curative for biofilm-laden prosthetic material, but it offers sustained bactericidal coverage against S. aureus for chronic suppression.</p>
-      <ul>
-        <li><strong>Dosing:</strong> 1500 mg IV once, then 1000 mg weekly — dramatically reduces hospitalization burden</li>
-        <li>Activity against MRSA and MSSA with excellent tissue penetration</li>
-        <li>Published case reports of long-term use in inoperable PVE maintaining hemodynamic stability</li>
-        <li>Not a substitute for curative therapy, but may meaningfully extend quality of life and delay progression</li>
-      </ul>
-      <div class="card-footer">
-        <span class="source">📄 Springer Infection — Systematic review of dalbavancin in IE (Sept 2024)</span>
-        <span class="source">📄 PubMed PMID 31123929 — Long-term SAT in inoperable PVE</span>
-      </div>
-    </div>
-
-    <!-- Rifampin adjunct -->
-    <div class="card">
-      <div class="card-top">
-        <h3>Rifampin — Guideline-Recommended Adjunct for Prosthetic Valve S. aureus</h3>
-        <div class="card-pills">
-          <span class="pill pill-gray">ESC & AHA Guideline</span>
-          <span class="pill pill-teal">Biofilm Penetration</span>
-        </div>
-      </div>
-      <p>Rifampin is uniquely able to penetrate biofilms and kill stationary-phase (non-dividing) staphylococci embedded in prosthetic material — a property standard antibiotics lack. Both the ESC 2023 and AHA/ACC guidelines recommend adding rifampin to the backbone antibiotic for <em>prosthetic valve</em> S. aureus endocarditis specifically (the evidence is weaker for native valve).</p>
-      <div class="highlight-box">
-        ⚠️ <strong>Critical:</strong> Rifampin must <em>never</em> be used as monotherapy — resistance emerges within 3–4 days. It must always be added on top of another effective agent. Blood cultures should be negative or clearing before addition to avoid selecting resistant mutants during high-burden bacteremia.
-      </div>
-      <ul>
-        <li>Dose: 300–450 mg PO/IV q8–12h</li>
-        <li>If not already part of the regimen, and blood cultures are negative, this may still add benefit</li>
-        <li>A July 2024 Mayo Clinic Proceedings paper reviewed the evidence — supports use in PVE specifically</li>
-        <li>Check for CYP3A4 drug interactions (rifampin is a potent inducer)</li>
-      </ul>
-      <div class="card-footer">
-        <span class="source">📄 ESC 2023 Endocarditis Guidelines</span>
-        <span class="source">📄 Mayo Clinic Proceedings — Rifampin in Staphylococcal PVE, July 2024</span>
-      </div>
-    </div>
-
-    <!-- Fosfomycin -->
-    <div class="card">
-      <div class="card-top">
-        <h3>IV Fosfomycin — Biofilm Disruptor, Combination Agent</h3>
-        <div class="card-pills">
-          <span class="pill pill-blue">Available in Europe</span>
-          <span class="pill pill-teal">Anti-Biofilm</span>
-        </div>
-      </div>
-      <p>IV fosfomycin (not the oral formulation) has excellent anti-biofilm activity and demonstrated synergy with daptomycin and β-lactams against S. aureus. It is widely available and commonly used across Germany and the EU, though the IV formulation requires compassionate use approval in the US. Given the patient is in Germany, this is practically accessible.</p>
-      <ul>
-        <li>Particularly useful in combination with daptomycin or as part of a triple regimen</li>
-        <li>Dose for serious infections: 8g IV q6–8h or as continuous infusion</li>
-        <li>Published in vitro data: fosfomycin + daptomycin is synergistic even against high-inoculum biofilm-producing S. aureus</li>
-        <li>Already available in German hospitals — no special import needed</li>
-      </ul>
-      <div class="card-footer">
-        <span class="source">📄 PMC — MRSA PVE Management Review (2019)</span>
+        <span class="source">📄 NEJM 2023 — Ceftobiprole Phase 3 RCT (PMID 37754204)</span>
         <span class="source">📄 MDPI Antibiotics — Daptomycin combinations review (June 2025)</span>
       </div>
     </div>
 
+    <div class="card">
+      <div class="card-top">
+        <h3>Dalbavancin — Long-Term Outpatient Suppression Backbone</h3>
+        <div class="card-pills">
+          <span class="pill pill-blue">Suppressive Strategy</span>
+          <span class="pill pill-teal">4–9 Week Dosing Intervals (TDM-guided)</span>
+        </div>
+      </div>
+      <p>Dalbavancin's 14-day half-life enables TDM-guided dosing intervals of 4–9 weeks on an outpatient basis — dramatically reducing hospitalization burden while maintaining therapeutic levels. Published case reports document long-term use in inoperable PVE maintaining hemodynamic stability. Once the infection is biologically controlled (negative cultures, stable CRP), dalbavancin becomes the practical suppression backbone.</p>
+      <ul>
+        <li>1500 mg IV loading dose, then 1000 mg at TDM-guided intervals (4–9 weeks)</li>
+        <li>Covers MRSA and MSSA; excellent cardiac tissue penetration</li>
+        <li>2024 systematic review (Springer Infection) confirms use in IE sequential therapy</li>
+        <li>Goal: sustained bactericidal coverage preventing relapse, reducing PICC/central line complications from daily IV antibiotics</li>
+      </ul>
+      <div class="card-footer">
+        <span class="source">📄 Springer Infection — Systematic review of dalbavancin in IE (Sept 2024)</span>
+        <span class="source">📄 PMID 31123929 — Long-term SAT in inoperable PVE and aortic graft infection</span>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     SECTION 3: SURGICAL SECOND OPINIONS
-════════════════════════════════════ -->
+<!-- ══════════════════════════════════
+     SECTION 4: SURGICAL SECOND OPINIONS
+══════════════════════════════════ -->
 <div class="section">
   <div class="section-header">
     <div class="section-icon icon-surgery">🏥</div>
-    <div><h2>Specialist Centers — Surgical Second Opinion</h2></div>
-    <span class="badge badge-consider">Worth Pursuing</span>
+    <h2>Specialist Surgical Second Opinions</h2>
+    <span class="badge badge-consider">Worth Pursuing in Parallel</span>
   </div>
 
-  <p style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:14px; color:var(--text-muted); margin-bottom:20px; max-width:720px;">
-    "Prohibitively high risk" at several German centers does not mean every center worldwide agrees. The threshold for extreme redo surgery differs significantly by surgical volume and individual expertise. Cases deemed inoperable at some institutions have been successfully operated at high-volume specialized centers. A remote records review costs nothing and may change everything.
+  <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;color:var(--text-muted);margin-bottom:20px;max-width:760px;">
+    "Prohibitively high risk" at several centers does not mean every center worldwide agrees. Cleveland Clinic's team has explicitly published their stepwise approach to <em>circumferential</em> aortic root abscess with mitral extension — cases other centers routinely decline — using cryopreserved homograft root replacement. Their observed redo endocarditis mortality (~2–3%) is often lower than STS predicted mortality. Remote records review costs nothing.
   </p>
 
   <div class="cards">
-
-    <!-- Cleveland Clinic -->
     <div class="card">
       <div class="card-top">
-        <h3>Cleveland Clinic — Heart, Vascular &amp; Thoracic Institute</h3>
+        <h3>Cleveland Clinic Endocarditis Center</h3>
         <div class="card-pills">
           <span class="pill pill-teal">USA</span>
           <span class="pill pill-green">Virtual Second Opinion Available</span>
-          <span class="pill pill-green">Redo Cardiac Surgery Leader</span>
+          <span class="pill pill-green">~200 Endocarditis Operations/Year</span>
         </div>
       </div>
-      <p>Cleveland Clinic is widely regarded as a world leader in complex redo cardiac surgery. Their reoperative cardiac surgery program reports outstanding outcomes: <strong>observed mortality of ~2–3%</strong> in redo operations — often lower than STS predicted mortality. Their podcast specifically discusses aortic root abscess with homograft as the preferred reconstruction approach.</p>
+      <p>The world's highest-volume endocarditis surgical program. Key surgeons: <strong>Gösta Pettersson, Marc Gillinov, Eric Roselli, Shinya Unai, Haytham Elgharably</strong> — this team has specifically published their stepwise approach to circumferential aortic root abscess with mitral involvement, routinely using cryopreserved homograft root replacement in cases other centers refuse. Observed mortality ~2–3%, often below STS predicted risk.</p>
       <div class="highlight-box">
-        <strong>Key advantage:</strong> Cleveland Clinic offers <em>virtual second opinions</em> for international cardiology cases — records, imaging, and antibiograms can be reviewed remotely without the patient traveling. This is the fastest way to get a high-quality re-evaluation of surgical feasibility.
+        <strong>Virtual second opinion:</strong> Cleveland Clinic offers international remote cardiology second opinions — records, imaging, and antibiograms reviewed remotely without travel. This is the fastest way to get a high-quality reassessment of surgical feasibility.
       </div>
-      <ul>
-        <li>Dedicated Complex Coronary Interventions &amp; Redo Heart Surgery Center</li>
-        <li>Multidisciplinary Endocarditis Team with ID, cardiac surgery, cardiology, imaging specialists</li>
-        <li>Experience with aortic root replacement + mitral involvement in a single redo operation</li>
-        <li>International patient coordination team available</li>
-      </ul>
       <div class="contact-box">
-        <div class="contact-title">📬 Virtual Second Opinion</div>
-        <p><strong>Web:</strong> <a href="https://www.clinicbyclevelandclinic.com/second-opinions/cardiology-second-opinions/" target="_blank">clinicbyclevelandclinic.com/second-opinions/cardiology-second-opinions/</a></p>
-        <p><strong>Physician referral:</strong> <a href="https://my.clevelandclinic.org/departments/heart/depts/cardiovascular-surgery" target="_blank">Cardiovascular Surgery — referral info</a></p>
+        <div class="contact-title">📬 Contact</div>
+        <p><strong>Virtual Second Opinion:</strong> <a href="https://www.clinicbyclevelandclinic.com/second-opinions/cardiology-second-opinions/" target="_blank">clinicbyclevelandclinic.com/second-opinions/cardiology-second-opinions/</a></p>
+        <p><strong>Endocarditis Center:</strong> <a href="https://my.clevelandclinic.org/departments/heart" target="_blank">my.clevelandclinic.org/departments/heart</a></p>
       </div>
     </div>
 
-    <!-- Mayo Clinic -->
     <div class="card">
       <div class="card-top">
-        <h3>Mayo Clinic — Rochester, MN — Aortic Root &amp; Cardiovascular Surgery</h3>
+        <h3>Hannover Medical School (MHH) — Cardiac Surgery</h3>
+        <div class="card-pills">
+          <span class="pill pill-blue">Germany 🇩🇪</span>
+          <span class="pill pill-green">Phage + Surgery Expertise Combined</span>
+          <span class="pill pill-teal">Logistically Practical</span>
+        </div>
+      </div>
+      <p>Hannover MHH is one of Germany's highest-volume cardiac surgery centers and — uniquely — the same team (Rubalskii, Kuehn, Haverich) has published phage therapy for aortic graft and LVAD infections. This makes MHH the one center where a phage consultation and a surgical second opinion can happen through the same institution simultaneously. Prof. Axel Haverich leads one of Europe's most experienced aortic surgery teams.</p>
+      <div class="contact-box">
+        <div class="contact-title">📬 Contact</div>
+        <p><strong>Phage + Surgery contact:</strong> Rubalskii.Evgenii@mh-hannover.de</p>
+        <p><strong>Web:</strong> <a href="https://www.mhh.de/herzchirurgie" target="_blank">mhh.de/herzchirurgie</a></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>West German Heart and Vascular Center Essen</h3>
+        <div class="card-pills">
+          <span class="pill pill-blue">Germany 🇩🇪</span>
+          <span class="pill pill-teal">High-Volume Aortic Surgery</span>
+        </div>
+      </div>
+      <p>One of Germany's leading centers for complex aortic and cardiac surgery, with substantial endocarditis experience. Relevant both as a surgical second opinion and as an aortic interventional center for pseudoaneurysm management discussion.</p>
+      <div class="contact-box">
+        <div class="contact-title">📬 Contact</div>
+        <p><strong>Web:</strong> <a href="https://www.uk-essen.de/herzchirurgie" target="_blank">uk-essen.de/herzchirurgie</a></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>German Heart Center Munich (DHM) / LMU Klinikum</h3>
+        <div class="card-pills">
+          <span class="pill pill-blue">Germany 🇩🇪</span>
+          <span class="pill pill-teal">High-Volume Cardiac Center</span>
+        </div>
+      </div>
+      <p>Germany's largest dedicated heart center; highest-volume cardiac surgery program in the country by case count. Strong aortic and valvular surgery program with dedicated endocarditis team.</p>
+      <div class="contact-box">
+        <div class="contact-title">📬 Contact</div>
+        <p><strong>Web:</strong> <a href="https://www.dhm.mhn.de" target="_blank">dhm.mhn.de</a></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Mayo Clinic — Cardiovascular Surgery &amp; Phage Program</h3>
         <div class="card-pills">
           <span class="pill pill-teal">USA</span>
           <span class="pill pill-amber">No Physician Referral Required</span>
-          <span class="pill pill-blue">Complex Aortic Root Specialists</span>
         </div>
       </div>
-      <p>Mayo Clinic is the highest-volume aortic root surgery center in the United States and maintains a world-class infectious disease/endocarditis program. Importantly, <strong>Mayo does not require a physician referral for a cardiovascular surgery consultation</strong> — the patient or family can apply directly.</p>
-      <ul>
-        <li>Published extensively on aortic root abscess outcomes and reconstruction techniques</li>
-        <li>Strong ID-cardiac surgery collaboration for endocarditis management</li>
-        <li>Accepts international patients; coordinates records review prior to visit</li>
-        <li>Can assess whether the specific anatomy (aortic root + pseudoaneurysm + mitral apparatus) is operable with their approach</li>
-      </ul>
+      <p>Mayo Clinic uniquely offers both world-class aortic root surgery and a dedicated phage therapy program (Dr. Gina Suh) under the same institution. No physician referral required for a cardiovascular surgery consultation — family can apply directly.</p>
       <div class="contact-box">
         <div class="contact-title">📬 Contact</div>
-        <p><strong>Appointment:</strong> <a href="https://www.mayoclinic.org/departments-centers/cardiovascular-surgery/sections/request-appointment/ptc-20123423" target="_blank">mayoclinic.org — Request Appointment (no referral needed)</a></p>
-        <p><strong>International:</strong> 001-507-538-3270</p>
+        <p><strong>Appointment (no referral needed):</strong> <a href="https://www.mayoclinic.org/departments-centers/cardiovascular-surgery/sections/request-appointment/ptc-20123423" target="_blank">mayoclinic.org — Request Appointment</a></p>
+        <p><strong>International:</strong> +1-507-538-3270</p>
       </div>
     </div>
 
-    <!-- DHZC Charité Berlin -->
     <div class="card">
       <div class="card-top">
         <h3>DHZC — Deutsches Herzzentrum der Charité, Berlin</h3>
         <div class="card-pills">
-          <span class="pill pill-blue">Germany</span>
-          <span class="pill pill-green">Highest Volume German Heart Center</span>
-          <span class="pill pill-teal">Local to Patient</span>
+          <span class="pill pill-blue">Germany 🇩🇪</span>
+          <span class="pill pill-teal">Germany's Largest Heart Center (formed 2023)</span>
         </div>
       </div>
-      <p>The Deutsches Herzzentrum der Charité (formed 2023 from the merger of DHZ and Charité cardiac facilities) is Germany's largest and highest-volume cardiac center. They specialize in bypass operations, aortic surgery, and complex redo cases — including prosthetic endocarditis specifically. If prior German surgical consultations were at smaller regional centers, DHZC represents a materially different level of expertise.</p>
-      <ul>
-        <li>Research group specifically studies redo surgery for prosthetic endocarditis and TAVI/clip dislocation cases</li>
-        <li>Full interdisciplinary endocarditis team (ID, cardiology, cardiac surgery, imaging)</li>
-        <li>Geographic proximity means record transfer is straightforward and travel is minimal</li>
-        <li>German healthcare system integration simplifies referral logistics</li>
-      </ul>
+      <p>Created in 2023 from the merger of DHZ and Charité cardiac facilities — Germany's largest and highest-volume heart center. The research group specifically studies redo surgery for prosthetic endocarditis. Full interdisciplinary endocarditis team.</p>
       <div class="contact-box">
         <div class="contact-title">📬 Contact</div>
         <p><strong>Web:</strong> <a href="https://www.dhzc.charite.de/en/" target="_blank">dhzc.charite.de/en/</a></p>
-        <p><strong>Location:</strong> Berlin, Germany</p>
       </div>
     </div>
-
-    <!-- UKE Hamburg -->
-    <div class="card">
-      <div class="card-top">
-        <h3>UKE — Universitätsklinikum Hamburg-Eppendorf</h3>
-        <div class="card-pills">
-          <span class="pill pill-blue">Germany</span>
-          <span class="pill pill-teal">Major Cardiac Surgery Center</span>
-        </div>
-      </div>
-      <p>UKE Hamburg maintains one of Germany's most active cardiac surgery programs with dedicated endocarditis experience. It represents another high-volume German second opinion option if the prior consultations were outside Hamburg and Berlin.</p>
-      <div class="contact-box">
-        <div class="contact-title">📬 Contact</div>
-        <p><strong>Web:</strong> <a href="https://www.uke.de/en" target="_blank">uke.de/en</a></p>
-        <p><strong>Department:</strong> Clinic for Cardiovascular Surgery</p>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<!-- ════════════════════════════════════
-     SECTION 4: ADJUNCTIVE / OTHER
-════════════════════════════════════ -->
-<div class="section">
-  <div class="section-header">
-    <div class="section-icon icon-drug">🔬</div>
-    <div><h2>Adjunctive &amp; Immunologic Approaches</h2></div>
-    <span class="badge badge-consider">Exploratory</span>
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <div class="card-top">
-        <h3>Hyperbaric Oxygen Therapy (HBOT)</h3>
-        <div class="card-pills">
-          <span class="pill pill-gray">Adjunctive</span>
-          <span class="pill pill-amber">Limited Cardiac Evidence</span>
-        </div>
-      </div>
-      <p>HBOT increases dissolved oxygen tension in tissues and is established for treating refractory osteomyelitis and prosthetic joint infections. The mechanism — improving oxygen availability in ischemic, necrotic, or avascular tissue, and directly enhancing killing of aerobic bacteria — is theoretically relevant to a periannular abscess with compromised perfusion. Limited published cardiac cases exist, but HBOT has been used adjunctively in desperate prosthetic infections. Discuss with an infectious disease specialist experienced in HBOT whether this is clinically feasible given the cardiac anatomy.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <h3>IV Immunoglobulin (IVIG)</h3>
-        <div class="card-pills">
-          <span class="pill pill-gray">Supportive</span>
-          <span class="pill pill-amber">Limited Endocarditis Evidence</span>
-        </div>
-      </div>
-      <p>IVIG is used in severe S. aureus infections with suspected toxin-mediated components (e.g. PVL-producing strains, toxic shock). If the patient's strain produces exotoxins contributing to ongoing inflammation and tissue destruction despite negative blood cultures, IVIG may modulate the host response. This is a supportive measure, not curative, but has been included in compassionate regimens for severe refractory staphylococcal disease.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <h3>Anti-Biofilm Adjuncts (Investigational)</h3>
-        <div class="card-pills">
-          <span class="pill pill-gray">Investigational</span>
-        </div>
-      </div>
-      <p>Several agents specifically targeting staphylococcal biofilm are in preclinical or early clinical stages: <strong>N-acetylcysteine</strong> (mucolytic with anti-biofilm properties, available OTC), <strong>EDTA lock solutions</strong> (chelate divalent cations critical to biofilm structure), and <strong>Dispersin B</strong> (enzymatic biofilm disruptor). None are standard of care for cardiac infections, but N-acetylcysteine in particular has been included in some compassionate-use protocols alongside antibiotics for device-related infections.</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- ════════════════════════════════════
-     SECTION 5: PALLIATIVE / SUPPRESSIVE
-════════════════════════════════════ -->
+<!-- ══════════════════════════════════
+     SECTION 5: PALLIATIVE
+══════════════════════════════════ -->
 <div class="section">
   <div class="section-header">
     <div class="section-icon icon-palliative">🕊️</div>
-    <div><h2>Palliative Framework — If Curative Intent Is Not Possible</h2></div>
+    <h2>Palliative Framework — When Curative Intent Is Not Possible</h2>
     <span class="badge badge-palliative">Long-Term Stability</span>
   </div>
 
   <div class="cards">
     <div class="card">
       <div class="card-top">
-        <h3>Suppressive Antibiotic Therapy (SAT) — 2025 Evidence Update</h3>
+        <h3>Suppressive Antibiotic Therapy (SAT) — 2025 Evidence</h3>
         <div class="card-pills">
+          <span class="pill pill-green">SAT May Outperform Conventional Antibiotics</span>
           <span class="pill pill-gray">Palliative</span>
-          <span class="pill pill-green">May Outperform Conservative Antibiotics</span>
         </div>
       </div>
-      <p>A 2025 study published in the <em>European Heart Journal Supplements</em> specifically analyzed SAT in IE patients ineligible for cardiac surgery. Key finding: <strong>SAT was associated with better outcomes than conventional antibiotic therapy (CAT) alone</strong> in non-operated PVE despite surgical indication. A separate large retrospective study (ScienceDirect, April 2025) similarly found SAT was safe and superior to CAT in this population.</p>
-      <div class="highlight-box">
-        <strong>What SAT means in practice:</strong> An individualized, long-term, closely monitored antimicrobial regimen — often oral or periodic IV — designed not to cure but to suppress the infection below the threshold of sepsis and embolic risk. This is distinct from simply "stopping antibiotics after 6 weeks" — it is a formal, ongoing clinical strategy.
-      </div>
+      <p>A 2025 European Heart Journal Supplements study and a separate April 2025 ScienceDirect retrospective both found that <strong>structured SAT was associated with better outcomes than conventional antibiotic therapy (CAT)</strong> in non-operated PVE despite surgical indication. SAT is not "stopping antibiotics" — it is a formal, ongoing, closely monitored clinical strategy designed to suppress infection below the threshold of sepsis and embolic risk.</p>
       <ul>
-        <li>Oral regimens: TMP-SMX, clindamycin, rifampin-based combinations depending on sensitivities</li>
-        <li>IV suppressive: dalbavancin weekly is particularly practical for outpatient long-term management</li>
-        <li>Close serial imaging (TEE/CT) to monitor pseudoaneurysm and abscess progression</li>
-        <li>If pseudoaneurysm enlarges significantly, the risk-benefit of surgical intervention changes — a dynamic reassessment</li>
-        <li>Quality of life focused: minimize hospitalizations, maintain function, prevent embolic complications</li>
+        <li><strong>Oral suppressive options:</strong> TMP-SMX, clindamycin, or rifampin-based (depending on sensitivities)</li>
+        <li><strong>IV outpatient suppression:</strong> Dalbavancin weekly — most practical for chronic management</li>
+        <li><strong>Serial imaging:</strong> TEE/CT to monitor pseudoaneurysm size and abscess progression</li>
+        <li><strong>Dynamic reassessment:</strong> Pseudoaneurysm enlargement changes the risk-benefit of intervention — ongoing monitoring is essential</li>
+        <li><strong>Adjunctive:</strong> IVIG in toxin-mediated cases; HBOT has theoretical benefit for ischemic tissue oxygen delivery but limited cardiac infection data</li>
       </ul>
       <div class="card-footer">
         <span class="source">📄 EHJ Supplements — SAT in High Surgical Risk IE, May 2025</span>
-        <span class="source">📄 ScienceDirect — Antimicrobial SAT in PVE Rejected from Surgery, April 2025 (PMID 40311710)</span>
+        <span class="source">📄 ScienceDirect — Antimicrobial SAT vs CAT in Inoperable PVE, April 2025</span>
       </div>
     </div>
   </div>
@@ -969,12 +500,10 @@
 </div><!-- /content -->
 
 <hr class="divider" />
-
-<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="page-footer">
-  <p><strong>Research prepared for Wolfgang</strong> · Compiled May 2025 by OpenBrain AI Research</p>
-  <p style="margin-top:8px;">Sources: PubMed/NIH · NEJM · European Heart Journal · ESC 2023 Endocarditis Guidelines · IDWeek 2025 · ClinicalTrials.gov · AHA/ACC Guidelines · Bacteriophage.news · IPATH UCSD · Armata Pharmaceuticals</p>
-  <p style="margin-top:12px; font-size:11px; max-width:700px; margin-left:auto; margin-right:auto;">⚠️ This document is for informational and research purposes only. It does not constitute medical advice, diagnosis, or treatment recommendations. All clinical decisions must be made by qualified physicians with full access to the patient's medical history, imaging, and antibiogram. Experimental and compassionate-use pathways require institutional approval and physician sponsorship.</p>
+  <p><strong>Research prepared for Wolfgang</strong> · Compiled May 2025 by OpenBrain AI Research · Updated with additional sources</p>
+  <p style="margin-top:8px;">Sources: PubMed/NIH · NEJM · Nat Microbiol · European Heart Journal · ESC 2023 Guidelines · IDWeek 2025 · ClinicalTrials.gov · Med J Aust · AHA/ACC Guidelines · PHAXIAM Therapeutics · IPATH UCSD · Armata Pharmaceuticals · Bacteriophage.news</p>
+  <p style="margin-top:12px;font-size:11px;max-width:700px;margin-left:auto;margin-right:auto;">⚠️ This document is for informational and research purposes only. It does not constitute medical advice, diagnosis, or treatment recommendations. All clinical decisions must be made by qualified physicians with full access to the patient's medical history, imaging, and antibiogram. Experimental and compassionate-use pathways require institutional approval and physician sponsorship.</p>
 </footer>
 
 </body>
